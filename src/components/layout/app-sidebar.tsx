@@ -14,6 +14,7 @@ import Link from "next/link";
 import { adminRoutes } from "@/routes/adminRoutes";
 import { userRoutes } from "@/routes/userRoutes";
 import { Route } from "@/types";
+import { Roles } from "@/constants/roles";
 
 export function AppSidebar({
   user,
@@ -23,9 +24,9 @@ export function AppSidebar({
 } & React.ComponentProps<typeof Sidebar>) {
   // 1. Select the correct route data based on user role
   let routes: Route[] = [];
-  if (user?.role === "admin") {
+  if (user?.role === Roles.admin) {
     routes = adminRoutes;
-  } else if (user?.role === "user") {
+  } else if (user?.role === Roles.user) {
     routes = userRoutes;
   }
 
